@@ -1,10 +1,10 @@
-# Dark Ages v5 WIP — Native Asset Library
+# Dark Ages v5 WIP — Original Medieval Asset Library
 
-This pass replaces borrowed manuscript scans with an original Alto City Limits medieval asset system.
+This pass replaces borrowed manuscript scans and the later simplified SVG approximations with the actual original illuminated-manuscript artwork generated for Alto City Limits.
 
 Included reusable asset types:
 - dragon and snail marginalia;
-- manicules;
+- three manicules;
 - vine flourishes;
 - illuminated initials;
 - cosmology and diagram motifs;
@@ -12,12 +12,13 @@ Included reusable asset types:
 - grotesques and bestiary figures.
 
 Implementation details:
-- one optimized transparent atlas is loaded once;
-- each item is exposed as an independent responsive SVG crop, so it can be positioned and scaled separately;
-- hero, folio markers, capability cards, Selected Work, project marks, Field Notes, and surprise interactions now use native artwork;
+- the original transparent artwork is preserved in one optimized WebP atlas;
+- each piece is exposed through a tight SVG viewBox crop so its original shape, proportions, color, line work, and transparency remain intact;
+- no multiply blending, recoloring, geometric redrawing, or non-uniform image stretching is applied;
+- hero, folio markers, capability cards, analysis imagery, Selected Work, project marks, Field Notes, and surprise interactions use the original generated art;
+- asset choices are more intentional: diagrams are used for strategy/systems, manicules for editorial/action cues, initials for folios/About, and creatures for marginalia/bestiary moments;
 - large marginal figures appear only on wide desktop and disappear below 1400px;
-- ornamental dividers and initials simplify on smaller screens;
-- remaining Wikimedia manuscript imagery is replaced at runtime by native assets;
-- the asset gallery is available at `assets/medieval/`.
+- the asset gallery at `assets/medieval/` renders the same exact source artwork used by the Dark Ages page;
+- the malformed hand-built SVG approximations have been removed from the repository.
 
 This remains a work in progress and is not the locked production theme.
