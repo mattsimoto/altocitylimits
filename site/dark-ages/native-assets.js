@@ -1,1 +1,54 @@
-(()=>{const NS='http://www.w3.org/2000/svg',XL='http://www.w3.org/1999/xlink',SELF=document.currentScript&&document.currentScript.src?document.currentScript.src:location.href,ATLAS=new URL('assets/medieval/alc-medieval-atlas.webp',SELF).href;const S={dragon:[0,8,255,235],snail:[258,25,255,205],manicule:[510,35,255,135],vine:[770,48,245,90],initialA:[35,265,210,230],initialC:[270,260,240,245],initialM:[530,260,220,240],compass:[775,265,235,240],elements:[5,515,255,220],cosmos:[280,510,245,245],border:[520,600,245,90],cornerRabbit:[790,520,220,235],lion:[10,800,275,195],devil:[300,805,205,180],bird:[505,795,265,205],rabbit:[785,795,225,200]};function sprite(name,cls='',alt=''){const b=S[name],svg=document.createElementNS(NS,'svg');svg.setAttribute('viewBox',b.join(' '));svg.setAttribute('class',('native-sprite '+cls).trim());svg.setAttribute('preserveAspectRatio','xMidYMid meet');if(alt){svg.setAttribute('role','img');const t=document.createElementNS(NS,'title');t.textContent=alt;svg.appendChild(t)}else svg.setAttribute('aria-hidden','true');const im=document.createElementNS(NS,'image');im.setAttribute('href',ATLAS);im.setAttributeNS(XL,'href',ATLAS);im.setAttribute('x','0');im.setAttribute('y','0');im.setAttribute('width','1024');im.setAttribute('height','1024');svg.appendChild(im);return svg}function replace(el,name,alt){if(!el)return null;const s=sprite(name,[...(el.classList||[])].join(' '),alt);el.replaceWith(s);return s}function run(){const q=s=>document.querySelector(s),qa=s=>[...document.querySelectorAll(s)];document.documentElement.classList.add('native-medieval-assets');const hero=q('.hero-art');if(hero){replace(hero.querySelector('img'),'cosmos','Original illuminated cosmology diagram for Alto City Limits');const d=sprite('dragon','native-hero-dragon','Original illuminated dragon for Alto City Limits');hero.appendChild(d)}const fol=['initialA','initialC','compass','initialM','elements','initialC','cosmos','initialA'];qa('.folio-illumination').forEach((e,i)=>replace(e,fol[i%fol.length],'Original illuminated folio ornament'));const caps=['dragon','snail','manicule','elements','lion','bird'];qa('.cap-illumination').forEach((e,i)=>replace(e,caps[i%caps.length],'Original medieval capability illustration'));const ill=qa('.illustration img');if(ill[0])replace(ill[0],'compass','Original strategic compass diagram');if(ill[1])replace(ill[1],'lion','Original bestiary figure');qa('.manuscript-portrait img').forEach(e=>replace(e,'initialM','Illuminated M for Matthew Russell'));const works=['elements','dragon','devil','snail','cosmos','border'];qa('.work-illumination').forEach((e,i)=>replace(e,works[i%works.length],'Original medieval case-study ornament'));const surprises=['rabbit','manicule','devil'];qa('.surprise-miniature').forEach((e,i)=>replace(e,surprises[i%surprises.length],'Original medieval marginal miniature'));const projects=['bird','compass','initialC','snail'];qa('.project-mark').forEach((e,i)=>replace(e,projects[i%projects.length],'Original medieval project mark'));const notes=['elements','bird','border'];qa('.note-thumb').forEach((e,i)=>replace(e,notes[i%notes.length],'Original medieval Field Notes illustration'));let f=0;const fallback=['lion','cosmos','rabbit','initialC'];qa('img').forEach(e=>{if((e.src||'').includes('commons.wikimedia.org'))replace(e,fallback[(f++)%fallback.length],'Original Alto City Limits medieval illustration')});const shell=q('.shell')||document.body;[['left','dragon','dragon'],['right','snail','snail'],['left','manicule','manicule'],['right','grotesque','devil']].forEach(([side,type,name])=>{const s=sprite(name,`native-marginalia ${side} ${type}`,'');shell.appendChild(s)});const secs=qa('.section');[0,2,4,6].forEach(i=>{if(secs[i])secs[i].appendChild(sprite('vine','native-vine-divider',''))});const bio=q('.bio p');if(bio)bio.prepend(sprite('initialM','native-initial','Illuminated M'));const support=q('.hero .support');if(support)support.prepend(sprite('initialA','native-initial','Illuminated A'));const nav=q('.utility .wrap');if(nav){const a=document.createElement('a');a.className='native-asset-link';a.href='assets/medieval/';a.textContent='Asset Library';nav.appendChild(a)}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run,{once:true});else run();window.ALCMedieval={sprite};})();
+(()=>{
+  const A='assets/medieval/';
+  const set=(el,name,alt='Alto City Limits medieval manuscript ornament')=>{if(!el)return;el.src=A+name;el.alt=alt;el.loading='lazy';el.decoding='async';};
+  const q=s=>document.querySelector(s), qa=s=>[...document.querySelectorAll(s)];
+  const run=()=>{
+    document.documentElement.classList.add('native-medieval-assets');
+
+    const hero=q('.hero-art');
+    if(hero){
+      set(hero.querySelector('img'),'diagram-compass.svg','Illuminated compass diagram created for Alto City Limits');
+      const d=document.createElement('img'); d.className='native-hero-dragon'; d.src=A+'dragon.svg'; d.alt='Illuminated red and blue dragon created for Alto City Limits'; hero.appendChild(d);
+    }
+
+    const folios=['initial-m.svg','diagram-compass.svg','vine.svg','grotesque.svg'];
+    qa('.folio-illumination').forEach((el,i)=>set(el,folios[i%folios.length],'Native illuminated folio ornament'));
+
+    const caps=['dragon.svg','snail.svg','manicule.svg','diagram-compass.svg','grotesque.svg','border-dragon.svg'];
+    qa('.cap-illumination').forEach((el,i)=>set(el,caps[i%caps.length],'Native medieval capability illustration'));
+
+    qa('.illustration img').forEach((el,i)=>set(el,i%2?'grotesque.svg':'diagram-compass.svg','Native medieval strategic illustration'));
+    qa('.manuscript-portrait img').forEach(el=>set(el,'initial-m.svg','Illuminated M for Matthew Russell'));
+
+    const works=['diagram-compass.svg','dragon.svg','grotesque.svg','snail.svg','vine.svg','border-dragon.svg'];
+    qa('.work-illumination').forEach((el,i)=>set(el,works[i%works.length],'Native medieval case-study illustration'));
+
+    const surprises=['snail.svg','manicule.svg','grotesque.svg'];
+    qa('.surprise-miniature').forEach((el,i)=>set(el,surprises[i%surprises.length],'Native medieval marginal miniature'));
+
+    const projects=['grotesque.svg','diagram-compass.svg','initial-m.svg','snail.svg'];
+    qa('.project-mark').forEach((el,i)=>set(el,projects[i%projects.length],'Native medieval project mark'));
+
+    const notes=['diagram-compass.svg','dragon.svg','border-dragon.svg'];
+    qa('.note-thumb').forEach((el,i)=>set(el,notes[i%notes.length],'Native medieval Field Notes illustration'));
+
+    const fallback=['dragon.svg','snail.svg','diagram-compass.svg','grotesque.svg','vine.svg'];
+    let f=0;
+    qa('img').forEach(el=>{const src=el.getAttribute('src')||'';if(src.includes('wikimedia')||src.includes('wikipedia')||src.includes('alamy'))set(el,fallback[(f++)%fallback.length]);});
+
+    const shell=q('.shell')||document.body;
+    [['left','dragon','dragon.svg'],['right','snail','snail.svg'],['left','manicule','manicule.svg'],['right','grotesque','grotesque.svg']].forEach(([side,type,file])=>{const im=document.createElement('img');im.className=`native-marginalia ${side} ${type}`;im.src=A+file;im.alt='';im.setAttribute('aria-hidden','true');shell.appendChild(im);});
+
+    const sections=qa('.section');
+    [0,2,4,6].forEach(idx=>{const s=sections[idx];if(!s)return;const im=document.createElement('img');im.className='native-vine-divider';im.src=A+'vine.svg';im.alt='';im.setAttribute('aria-hidden','true');s.appendChild(im);});
+
+    const bio=q('.bio p');
+    if(bio){const im=document.createElement('img');im.className='native-initial';im.src=A+'initial-m.svg';im.alt='Illuminated M';bio.prepend(im);bio.classList.add('has-native-initial');}
+
+    qa('.work-card:nth-child(odd),.note-card:first-child').forEach(el=>{const im=document.createElement('img');im.className='native-border-fragment';im.src=A+'border-dragon.svg';im.alt='';im.setAttribute('aria-hidden','true');el.appendChild(im);});
+
+    const nav=q('.utility .wrap');
+    if(nav&&!q('.native-asset-link')){const a=document.createElement('a');a.className='native-asset-link';a.href='assets/medieval/';a.textContent='Asset Library';nav.appendChild(a);}
+  };
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run,{once:true});else run();
+})();
