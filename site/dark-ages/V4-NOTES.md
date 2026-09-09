@@ -11,5 +11,3 @@ Changes in this pass:
 - all primary content stays in the responsive reading grid.
 
 This remains a work in progress and is not the locked production theme.
-
-GitHub Pages checkpoint: v4 normalized and ready for live review.
