@@ -1,33 +1,23 @@
-/* Alto City Limits — original Dark Ages manuscript artwork layer */
+/* Alto City Limits Dark Ages — direct binary artwork layer */
 .hero-art,.illustration,.manuscript-portrait,.work-card,.note-card,.project,.surprise{position:relative}
-
-/* Native assets are canvas crops from the original generated atlas. Never stretch, recolor or blend them. */
-.native-sprite{display:block;max-width:100%;height:auto!important;filter:none!important;mix-blend-mode:normal!important}
-
-.hero-art .native-sprite:not(.native-hero-dragon){width:min(100%,460px);height:auto!important;margin:auto}
-.folio-illumination.native-sprite{width:92px;height:auto!important;margin-top:12px;padding:3px;background:rgba(255,248,225,.28)}
-.cap-illumination.native-sprite{width:auto;max-width:100%;max-height:150px;height:auto!important;margin:0 auto 18px;padding:4px;background:rgba(255,248,225,.18)}
-.illustration .native-sprite{width:min(100%,430px);height:auto!important;margin:auto}
-.manuscript-portrait .native-sprite{width:min(100%,250px);height:auto!important;margin:auto;padding:10px}
-.work-illumination.native-sprite{width:auto;max-width:100%;max-height:210px;height:auto!important;margin:0 auto;padding:6px;background:rgba(255,248,225,.18)}
-.project-mark.native-sprite{width:72px;height:auto!important;padding:3px;background:rgba(255,248,225,.18);grid-row:1/5}
-.note-thumb.native-sprite{width:auto;max-width:100%;max-height:190px;height:auto!important;margin:auto;padding:4px;background:rgba(255,248,225,.14)}
-.surprise-miniature.native-sprite{width:72px;height:auto!important;margin-bottom:6px;padding:3px;background:rgba(255,248,225,.18)}
-
-.native-hero-dragon{position:absolute;right:-58px;bottom:-32px;width:190px!important;height:auto!important;pointer-events:none;z-index:3;transform:rotate(4deg);filter:none!important;mix-blend-mode:normal!important}
-.native-vine-divider{display:block;width:min(560px,76%);height:auto!important;margin:34px auto -12px;opacity:.92;filter:none!important;mix-blend-mode:normal!important}
-.native-marginalia{position:absolute;z-index:1;pointer-events:none;opacity:.9;height:auto!important;filter:none!important;mix-blend-mode:normal!important}
+.native-art{display:block;max-width:100%;height:auto!important;object-fit:contain!important;filter:none!important;mix-blend-mode:normal!important}
+.hero-art>.native-art:not(.native-hero-dragon){width:min(420px,92%);margin:0 auto}
+.native-hero-dragon{position:absolute;right:-42px;bottom:-18px;width:190px!important;z-index:3;transform:rotate(4deg);pointer-events:none}
+.folio-illumination.native-art{width:108px;height:82px!important;margin-top:12px;padding:4px;border:3px double var(--rule-dark);background:rgba(255,248,225,.28)}
+.cap-illumination.native-art{width:100%;height:124px!important;margin:0 0 18px;padding:7px;border:1px solid var(--rule-dark);background:rgba(255,248,225,.24)}
+.illustration .native-art{width:min(440px,100%);max-height:420px;margin:auto}
+.manuscript-portrait .native-art{width:min(320px,100%);max-height:330px;margin:auto}
+.work-illumination.native-art{width:100%;height:190px!important;padding:10px;border:1px solid var(--rule-dark);background:rgba(255,248,225,.24)}
+.project-mark.native-art{width:82px!important;height:82px!important;padding:4px;border:1px solid var(--rule);background:rgba(255,248,225,.24);grid-row:1/5}
+.note-thumb.native-art{width:100%;height:165px!important;padding:8px;background:rgba(255,248,225,.2)}
+.surprise-miniature.native-art{width:78px!important;height:78px!important;padding:3px;margin-bottom:6px;border:1px solid var(--rule-dark);background:rgba(255,248,225,.22)}
+.native-marginalia{position:absolute;z-index:1;width:150px!important;pointer-events:none;opacity:.96}
 .native-marginalia.left{left:max(8px,calc((100vw - 1320px)/2 - 112px))}.native-marginalia.right{right:max(8px,calc((100vw - 1320px)/2 - 112px))}
-.native-marginalia.dragon{top:7%;width:170px;transform:rotate(-8deg)}
-.native-marginalia.snail{top:29%;width:150px;transform:rotate(7deg)}
-.native-marginalia.manicule{top:52%;width:165px;transform:rotate(-4deg)}
-.native-marginalia.grotesque{top:74%;width:145px;transform:rotate(5deg)}
-
-.native-initial{float:left;width:58px;height:auto!important;margin:0 12px 4px 0;filter:none!important;mix-blend-mode:normal!important}
-.native-border-fragment{display:block;width:min(100%,360px);height:auto!important;margin:18px auto 0;opacity:.9;filter:none!important;mix-blend-mode:normal!important}
+.native-marginalia.m0{top:7%;transform:rotate(-8deg)}.native-marginalia.m1{top:29%;transform:rotate(7deg)}.native-marginalia.m2{top:52%;transform:rotate(-4deg)}.native-marginalia.m3{top:74%;transform:rotate(5deg)}
+.native-art-divider{display:flex;justify-content:center;margin:34px auto -8px;min-height:70px}.native-art-divider img{width:116px!important;max-height:90px}
+.native-initial{float:left;width:72px!important;max-height:82px;margin:0 12px 4px 0}
 .native-asset-link{font:700 9px/1 var(--caps,Cinzel,serif);letter-spacing:.09em;text-transform:uppercase;color:var(--red,#922d20);text-decoration:none}
 .native-asset-link:hover,.native-asset-link:focus{color:var(--blue,#244d67)}
-
-@media(max-width:1399px){.native-marginalia{display:none}.native-hero-dragon{right:-18px;width:145px!important}}
-@media(max-width:900px){.native-hero-dragon{width:112px!important;right:-10px;bottom:-16px}.native-vine-divider{width:82%;margin-top:24px}.work-illumination.native-sprite{max-height:180px}}
-@media(max-width:640px){.native-hero-dragon{display:none}.native-vine-divider{width:92%}.native-initial{width:48px}.cap-illumination.native-sprite{max-height:120px}.work-illumination.native-sprite{max-height:155px}.note-thumb.native-sprite{max-height:150px}}
+@media(max-width:1399px){.native-marginalia{display:none}.native-hero-dragon{right:-10px;width:145px!important}}
+@media(max-width:900px){.native-hero-dragon{width:112px!important;right:0;bottom:-8px}.work-illumination.native-art{height:165px!important}.native-art-divider{margin-top:24px}}
+@media(max-width:640px){.native-hero-dragon{display:none}.cap-illumination.native-art{height:108px!important}.work-illumination.native-art{height:145px!important}.note-thumb.native-art{height:135px!important}.native-art-divider img{width:90px!important}}
