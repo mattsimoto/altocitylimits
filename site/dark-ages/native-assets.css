@@ -1,15 +1,50 @@
-/* Alto City Limits — native Dark Ages manuscript asset layer */
+/* Alto City Limits — original Dark Ages manuscript artwork layer */
 .hero-art,.illustration,.manuscript-portrait,.work-card,.note-card,.project,.surprise{position:relative}
-.hero-art img,.illustration img,.manuscript-portrait img,.folio-illumination,.cap-illumination,.work-illumination,.project-mark,.note-thumb,.surprise-miniature{background:transparent!important;mix-blend-mode:multiply;filter:none!important;object-fit:contain!important}
-.native-hero-dragon{position:absolute;right:-58px;bottom:-32px;width:190px!important;max-height:none!important;pointer-events:none;z-index:3;transform:rotate(4deg);mix-blend-mode:multiply}
-.native-vine-divider{display:block;width:min(620px,76%);height:auto;max-height:82px;object-fit:contain;margin:34px auto -12px;opacity:.84;mix-blend-mode:multiply}
-.native-marginalia{position:absolute;z-index:1;pointer-events:none;opacity:.86;mix-blend-mode:multiply;filter:saturate(.9)}
+
+/* The original generated art is already transparent and color-correct. Do not filter, recolor or multiply it. */
+.native-sprite{display:block;max-width:100%;height:auto;overflow:visible;filter:none!important;mix-blend-mode:normal!important}
+.native-sprite image{image-rendering:auto}
+
+.hero-art .native-sprite:not(.native-hero-dragon){width:100%;max-height:480px;margin:auto}
+.folio-illumination.native-sprite{width:112px;height:78px;margin-top:12px;border:3px double var(--rule-dark);padding:3px;background:rgba(255,248,225,.28)}
+.cap-illumination.native-sprite{width:100%;height:118px;margin:0 0 18px;border:1px solid var(--rule-dark);padding:6px;background:rgba(255,248,225,.24)}
+.illustration .native-sprite{width:100%;max-height:460px;margin:auto}
+.manuscript-portrait .native-sprite{width:100%;height:330px;margin:auto;padding:20px}
+.work-illumination.native-sprite{width:100%;height:190px;border:1px solid var(--rule-dark);padding:10px;background:rgba(255,248,225,.24)}
+.project-mark.native-sprite{width:82px;height:82px;border:1px solid var(--rule);padding:4px;background:rgba(255,248,225,.24);grid-row:1/5}
+.note-thumb.native-sprite{width:100%;height:165px;padding:8px;background:rgba(255,248,225,.2)}
+.surprise-miniature.native-sprite{width:72px;height:72px;border:1px solid var(--rule-dark);margin-bottom:6px;padding:3px;background:rgba(255,248,225,.22)}
+
+.native-hero-dragon{position:absolute;right:-58px;bottom:-32px;width:190px!important;height:auto!important;max-height:none!important;pointer-events:none;z-index:3;transform:rotate(4deg);filter:none!important;mix-blend-mode:normal!important}
+.native-vine-divider{display:block;width:min(620px,76%);height:96px;margin:34px auto -12px;opacity:.92;filter:none!important;mix-blend-mode:normal!important}
+.native-marginalia{position:absolute;z-index:1;pointer-events:none;opacity:.9;filter:none!important;mix-blend-mode:normal!important}
 .native-marginalia.left{left:max(8px,calc((100vw - 1320px)/2 - 112px))}.native-marginalia.right{right:max(8px,calc((100vw - 1320px)/2 - 112px))}
-.native-marginalia.dragon{top:7%;width:170px;transform:rotate(-8deg)}.native-marginalia.snail{top:29%;width:150px;transform:rotate(7deg)}.native-marginalia.manicule{top:52%;width:155px;transform:rotate(-4deg)}.native-marginalia.grotesque{top:74%;width:138px;transform:rotate(5deg)}
-.native-initial{float:left;width:58px;height:72px;object-fit:contain;margin:0 12px 4px 0;mix-blend-mode:multiply}
-.native-border-fragment{display:block;width:100%;height:44px;object-fit:contain;margin:18px auto 0;opacity:.78;mix-blend-mode:multiply}
+.native-marginalia.dragon{top:7%;width:170px;transform:rotate(-8deg)}
+.native-marginalia.snail{top:29%;width:150px;transform:rotate(7deg)}
+.native-marginalia.manicule{top:52%;width:165px;transform:rotate(-4deg)}
+.native-marginalia.grotesque{top:74%;width:145px;transform:rotate(5deg)}
+
+.native-initial{float:left;width:58px;height:78px;margin:0 12px 4px 0;filter:none!important;mix-blend-mode:normal!important}
+.native-border-fragment{display:block;width:100%;height:54px;margin:18px auto 0;opacity:.9;filter:none!important;mix-blend-mode:normal!important}
 .native-asset-link{font:700 9px/1 var(--caps,Cinzel,serif);letter-spacing:.09em;text-transform:uppercase;color:var(--red,#922d20);text-decoration:none}
 .native-asset-link:hover,.native-asset-link:focus{color:var(--blue,#244d67)}
-@media(max-width:1399px){.native-marginalia{display:none}.native-hero-dragon{right:-18px;width:145px}}
-@media(max-width:900px){.native-hero-dragon{width:112px;right:-10px;bottom:-16px}.native-vine-divider{width:88%;margin-top:24px}.native-border-fragment{height:34px}}
-@media(max-width:640px){.native-hero-dragon{display:none}.native-vine-divider{width:100%;max-height:58px}.native-initial{width:48px;height:58px}.native-border-fragment{height:28px}}
+
+@media(max-width:1399px){
+  .native-marginalia{display:none}
+  .native-hero-dragon{right:-18px;width:145px!important}
+}
+@media(max-width:900px){
+  .native-hero-dragon{width:112px!important;right:-10px;bottom:-16px}
+  .native-vine-divider{width:88%;height:76px;margin-top:24px}
+  .native-border-fragment{height:42px}
+  .work-illumination.native-sprite{height:170px}
+}
+@media(max-width:640px){
+  .native-hero-dragon{display:none}
+  .native-vine-divider{width:100%;height:58px}
+  .native-initial{width:48px;height:64px}
+  .native-border-fragment{height:34px}
+  .cap-illumination.native-sprite{height:108px}
+  .work-illumination.native-sprite{height:150px}
+  .note-thumb.native-sprite{height:145px}
+}
