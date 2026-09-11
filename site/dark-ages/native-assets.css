@@ -19,6 +19,75 @@
 .native-border-fragment{display:block;width:min(520px,92%)!important;max-height:52px;margin:22px auto 0;object-fit:contain!important;opacity:.94}
 .native-asset-link{font:700 9px/1 var(--caps,Cinzel,serif);letter-spacing:.09em;text-transform:uppercase;color:var(--red,#922d20);text-decoration:none}
 .native-asset-link:hover,.native-asset-link:focus{color:var(--blue,#244d67)}
+
+/* Mobile-fit pass: keep the manuscript mood, but stop treating a phone like a shrunken desktop folio. */
+html,body{max-width:100%;overflow-x:hidden}
+img,canvas,svg,video{max-width:100%;height:auto}
+.shell,.wrap,.container,.folio,.section,.section-inner,.hero,.hero-grid,.hero-layout,.masthead,.utility,.site-header,main{box-sizing:border-box;max-width:100%}
+.hero h1,.hero-title,.display-title,.opening h1,.folio-opening h1{max-width:100%;overflow-wrap:normal;text-wrap:balance}
+
 @media(max-width:1399px){.native-marginalia{display:none}.native-hero-dragon{right:-10px;width:145px!important}}
-@media(max-width:900px){.native-hero-dragon{width:112px!important;right:0;bottom:-8px}.work-illumination.native-art{height:165px!important}.native-art-divider{margin-top:28px}.native-art-divider img{width:min(360px,82%)!important}}
-@media(max-width:640px){.native-hero-dragon{display:none}.cap-illumination.native-art{height:108px!important}.work-illumination.native-art{height:145px!important}.note-thumb.native-art{height:135px!important}.native-art-divider img{width:90%!important;max-height:54px}.native-border-fragment{max-height:36px;margin-top:16px}}
+@media(max-width:900px){
+  .native-hero-dragon{width:112px!important;right:0;bottom:-8px}
+  .work-illumination.native-art{height:165px!important}
+  .native-art-divider{margin-top:28px}
+  .native-art-divider img{width:min(360px,82%)!important}
+}
+
+@media(max-width:760px){
+  body{font-size:16px}
+  .wrap,.shell,.container,.section-inner,.folio,main{padding-left:clamp(14px,4vw,22px)!important;padding-right:clamp(14px,4vw,22px)!important}
+  .utility .wrap{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;padding-top:10px!important;padding-bottom:8px!important}
+  .utility .modes,.mode-switch,.theme-switcher,.theme-nav{display:flex!important;align-items:center!important;gap:12px!important;flex-wrap:nowrap!important}
+  .utility a,.mode-switch a,.theme-switcher a{min-width:30px!important;min-height:30px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;font-size:13px!important;line-height:1!important}
+  .native-asset-link{font-size:10px!important;white-space:nowrap!important;margin-left:auto!important}
+
+  .masthead,.site-header,header{padding-top:18px!important;padding-bottom:18px!important}
+  .masthead .wrap,.site-header .wrap,header .wrap{display:block!important}
+  .brand,.site-title,.logo,.masthead h1{font-size:clamp(3rem,15vw,5rem)!important;line-height:.92!important;letter-spacing:-.045em!important;max-width:100%!important;white-space:normal!important;overflow-wrap:normal!important}
+  .brand .initial,.site-title .initial,.logo .initial{width:.78em!important;height:.78em!important;line-height:.78!important;vertical-align:.03em!important}
+
+  nav,.nav,.site-nav,.primary-nav{max-width:100%!important;overflow:hidden!important}
+  nav ul,.nav ul,.site-nav ul,.primary-nav ul{display:flex!important;flex-wrap:wrap!important;align-items:center!important;gap:10px 18px!important;padding:12px 0!important;margin:0!important;list-style:none!important}
+  nav a,.nav a,.site-nav a,.primary-nav a{font-size:clamp(.82rem,3.6vw,1rem)!important;letter-spacing:.08em!important;white-space:nowrap!important;line-height:1.25!important}
+
+  .hero,.opening,.folio-opening{padding-top:54px!important;padding-bottom:42px!important}
+  .hero-grid,.hero-layout,.opening-grid,.two-column,.analysis-layout,.about-layout,.record-layout{display:grid!important;grid-template-columns:1fr!important;gap:24px!important}
+  .hero h1,.hero-title,.display-title,.opening h1,.folio-opening h1{font-size:clamp(4rem,18vw,6.5rem)!important;line-height:.84!important;letter-spacing:-.055em!important;margin-top:0!important;margin-bottom:22px!important;max-width:100%!important}
+  .hero p,.opening p,.folio-opening p,.lede{font-size:clamp(1.35rem,5.5vw,2rem)!important;line-height:1.25!important;max-width:100%!important}
+  .hero .actions,.actions,.cta-row{display:flex!important;flex-wrap:wrap!important;gap:12px!important;margin-top:24px!important}
+  .hero .actions a,.actions a,.button,.btn{min-width:0!important;max-width:100%!important;text-align:center!important;padding:14px 18px!important;font-size:clamp(.82rem,3.7vw,.98rem)!important;letter-spacing:.09em!important}
+
+  .hero-art{width:100%!important;max-width:420px!important;margin:20px auto 0!important;padding:14px!important}
+  .hero-art>.native-art:not(.native-hero-dragon){width:min(290px,84vw)!important;max-height:300px!important}
+  .native-hero-dragon{width:88px!important;right:4px!important;bottom:2px!important}
+
+  .capability-grid,.capabilities-grid,.work-grid,.notes-grid,.project-grid,.inventory-grid,.record-grid,.tools-grid,.metrics-grid{display:grid!important;grid-template-columns:1fr!important;gap:18px!important}
+  .section{padding-top:58px!important;padding-bottom:58px!important}
+}
+
+@media(max-width:480px){
+  .wrap,.shell,.container,.section-inner,.folio,main{padding-left:16px!important;padding-right:16px!important}
+  .brand,.site-title,.logo,.masthead h1{font-size:clamp(2.55rem,14vw,4.1rem)!important;line-height:.92!important}
+  nav ul,.nav ul,.site-nav ul,.primary-nav ul{gap:8px 14px!important;padding:10px 0!important}
+  nav a,.nav a,.site-nav a,.primary-nav a{font-size:.82rem!important;letter-spacing:.07em!important}
+  .hero,.opening,.folio-opening{padding-top:44px!important;padding-bottom:36px!important}
+  .hero h1,.hero-title,.display-title,.opening h1,.folio-opening h1{font-size:clamp(3.35rem,17vw,5rem)!important;line-height:.84!important;margin-bottom:18px!important}
+  .hero p,.opening p,.folio-opening p,.lede{font-size:clamp(1.18rem,5.2vw,1.55rem)!important;line-height:1.28!important}
+  .hero .actions a,.actions a,.button,.btn{flex:1 1 100%!important;width:100%!important}
+  .hero-art{max-width:330px!important;padding:10px!important;margin-top:14px!important}
+  .hero-art>.native-art:not(.native-hero-dragon){width:min(235px,76vw)!important;max-height:235px!important}
+  .native-hero-dragon{width:70px!important;right:2px!important;bottom:0!important}
+  .cap-illumination.native-art{height:96px!important}
+  .work-illumination.native-art{height:128px!important}
+  .note-thumb.native-art{height:120px!important}
+  .native-art-divider img{width:86%!important;max-height:48px}
+  .native-border-fragment{max-height:32px;margin-top:14px}
+}
+
+@media(max-width:380px){
+  .brand,.site-title,.logo,.masthead h1{font-size:2.35rem!important}
+  .hero h1,.hero-title,.display-title,.opening h1,.folio-opening h1{font-size:3.05rem!important;line-height:.85!important}
+  .hero-art>.native-art:not(.native-hero-dragon){width:210px!important;max-height:210px!important}
+  .native-hero-dragon{display:none!important}
+}
