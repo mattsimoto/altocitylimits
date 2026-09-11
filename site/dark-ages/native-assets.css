@@ -14,10 +14,11 @@
 .native-marginalia{position:absolute;z-index:1;width:150px!important;pointer-events:none;opacity:.96}
 .native-marginalia.left{left:max(8px,calc((100vw - 1320px)/2 - 112px))}.native-marginalia.right{right:max(8px,calc((100vw - 1320px)/2 - 112px))}
 .native-marginalia.m0{top:7%;transform:rotate(-8deg)}.native-marginalia.m1{top:29%;transform:rotate(7deg)}.native-marginalia.m2{top:52%;transform:rotate(-4deg)}.native-marginalia.m3{top:74%;transform:rotate(5deg)}
-.native-art-divider{display:flex;justify-content:center;margin:34px auto -8px;min-height:70px}.native-art-divider img{width:116px!important;max-height:90px}
+.native-art-divider{display:flex;justify-content:center;margin:42px auto -4px;min-height:56px}.native-art-divider img{width:min(420px,72%)!important;max-height:72px}
 .native-initial{float:left;width:72px!important;max-height:82px;margin:0 12px 4px 0}
+.native-border-fragment{display:block;width:min(520px,92%)!important;max-height:52px;margin:22px auto 0;object-fit:contain!important;opacity:.94}
 .native-asset-link{font:700 9px/1 var(--caps,Cinzel,serif);letter-spacing:.09em;text-transform:uppercase;color:var(--red,#922d20);text-decoration:none}
 .native-asset-link:hover,.native-asset-link:focus{color:var(--blue,#244d67)}
 @media(max-width:1399px){.native-marginalia{display:none}.native-hero-dragon{right:-10px;width:145px!important}}
-@media(max-width:900px){.native-hero-dragon{width:112px!important;right:0;bottom:-8px}.work-illumination.native-art{height:165px!important}.native-art-divider{margin-top:24px}}
-@media(max-width:640px){.native-hero-dragon{display:none}.cap-illumination.native-art{height:108px!important}.work-illumination.native-art{height:145px!important}.note-thumb.native-art{height:135px!important}.native-art-divider img{width:90px!important}}
+@media(max-width:900px){.native-hero-dragon{width:112px!important;right:0;bottom:-8px}.work-illumination.native-art{height:165px!important}.native-art-divider{margin-top:28px}.native-art-divider img{width:min(360px,82%)!important}}
+@media(max-width:640px){.native-hero-dragon{display:none}.cap-illumination.native-art{height:108px!important}.work-illumination.native-art{height:145px!important}.note-thumb.native-art{height:135px!important}.native-art-divider img{width:90%!important;max-height:54px}.native-border-fragment{max-height:36px;margin-top:16px}}
