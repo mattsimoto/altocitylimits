@@ -1,0 +1,1 @@
+The direct image pipeline is confirmed working in Chrome and Brave. The page currently uses dragon.webp, snail.webp, and diagram-compass.webp directly. Expansion to the full approved library is the next commit.
