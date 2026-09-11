@@ -1,0 +1,1 @@
+Direct WebP artwork assets for the Alto City Limits Dark Ages theme. The production Dark Ages page currently uses ordinary image files for maximum browser compatibility.
