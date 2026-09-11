@@ -1,0 +1,1 @@
+Direct WebP asset library expansion in progress. Existing verified direct assets: dragon.webp, snail.webp, diagram-compass.webp. Additional direct WebP files are being added from the approved native medieval artwork set.
