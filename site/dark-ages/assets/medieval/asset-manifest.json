@@ -1,0 +1,5 @@
+{
+  "pipeline": "direct-webp",
+  "verified": ["dragon.webp", "snail.webp", "diagram-compass.webp"],
+  "planned": ["manicule-blue.webp", "manicule-red.webp", "manicule-floral.webp", "vine-01.webp", "vine-02.webp", "initial-a.webp", "initial-c.webp", "initial-m.webp", "diagram-cosmos.webp", "diagram-elements.webp", "diagram-grid.webp", "grotesque-blue-devil.webp", "grotesque-lion.webp", "grotesque-bird.webp", "grotesque-rabbit.webp", "border-dragon-horizontal.webp", "border-bird-horizontal.webp"]
+}
