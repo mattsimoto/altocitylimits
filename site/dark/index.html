@@ -11,7 +11,7 @@
 (async()=>{
   try{
     const names=['chunk-00','chunk-01','chunk-02','chunk-03'];
-    const parts=await Promise.all(names.map(async n=>(await (await fetch(n)).text()).trim()));
+    const parts=await Promise.all(names.map(async n=>(await (await fetch(n+'?v=dark-darker-1')).text()).trim()));
     const bytes=Uint8Array.from(atob(parts.join('')),c=>c.charCodeAt(0));
     const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
     let html=await new Response(stream).text();
@@ -65,6 +65,34 @@ body{
   background-attachment:fixed!important;
 }
 
+/* Make the formerly light Campaign bands truly dark. */
+body .site,body .page,body .site-main,body main,
+body section,body [class*="section"],body [class*="chapter"],body [class*="band"],body [class*="strip"],body [class*="zone"],
+body [class*="hero"],body [class*="intro"],body [class*="content"],body [class*="wrapper"]{
+  background-color:transparent!important;
+  background-image:none!important;
+}
+body main>section,body main>div,body .site-main>section,body .site-main>div,
+body [class*="chapter"],body [class*="section"],body [class*="band"],body [class*="strip"]{
+  background:linear-gradient(180deg,rgba(18,12,9,.98),rgba(10,7,5,.98))!important;
+  color:var(--alc-text)!important;
+  border-color:var(--alc-line-soft)!important;
+}
+body main>section:nth-of-type(even),body .site-main>section:nth-of-type(even),body [class*="chapter"]:nth-of-type(even){
+  background:linear-gradient(180deg,rgba(28,17,12,.98),rgba(13,9,7,.98))!important;
+}
+body main>section:nth-of-type(odd),body .site-main>section:nth-of-type(odd),body [class*="chapter"]:nth-of-type(odd){
+  background:linear-gradient(180deg,rgba(13,9,7,.99),rgba(18,12,9,.99))!important;
+}
+body [style*="background:#"],body [style*="background: #"],body [style*="background-color:#"],body [style*="background-color: #"]{
+  background:#120c09!important;
+}
+body [class*="light"],body [class*="cream"],body [class*="paper"],body [class*="parchment"],body [class*="beige"],body [class*="tan"]{
+  background-color:#120c09!important;
+  background-image:none!important;
+  color:var(--alc-text)!important;
+}
+
 header,.site-header,[class*="header"],nav,.site-nav,[class*="nav"],footer,.site-footer,[class*="footer"]{
   background-color:rgba(15,10,8,.96)!important;
   color:var(--alc-text)!important;
@@ -93,6 +121,7 @@ hr,*{border-color:var(--alc-line)!important}
 /* Cards, stat blocks, records and framed content. */
 article,.card,[class*="-card"],[class*="card"],[class*="panel"],[class*="stat-block"],[class*="factbox"],[class*="metric"],[class*="record"],[class*="skill-check"]{
   background-color:var(--alc-leather)!important;
+  background-image:none!important;
   color:var(--alc-text)!important;
   border-color:var(--alc-line)!important;
   box-shadow:0 12px 34px rgba(0,0,0,.24)!important;
@@ -102,6 +131,7 @@ article:nth-child(even),[class*="card"]:nth-child(even){background-color:var(--a
 /* Random encounter / loot / roll boxes keep their surprise but read as dungeon artifacts. */
 blockquote,pre,code,table,[class*="outcome"],[class*="generator"],[class*="encounter"],[class*="loot"],[class*="random"],[class*="roll"],[class*="chest"]{
   background-color:#17100c!important;
+  background-image:none!important;
   color:var(--alc-parchment)!important;
   border-color:#5a3526!important;
 }
@@ -130,8 +160,8 @@ input,textarea,select{
 input::placeholder,textarea::placeholder{color:#806f5d!important}
 
 /* Keep artwork visible without bright white blocks dominating the dark composition. */
-img{filter:brightness(.86) saturate(.88) contrast(1.04)}
-figure,[class*="image"],[class*="media"]{border-color:var(--alc-line)!important}
+img{filter:brightness(.78) saturate(.82) contrast(1.06)}
+figure,[class*="image"],[class*="media"]{border-color:var(--alc-line)!important;background-color:#120c09!important}
 
 ::selection{background:var(--alc-blood);color:#fff3e3}
 
