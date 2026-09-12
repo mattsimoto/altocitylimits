@@ -1,0 +1,55 @@
+/* Approved Dark Ages asset map refinements.
+   Keeps large placements as intact scene fragments and small placements as marginalia. */
+.bayeux-approved-map .native-hero-support{
+  display:block!important;
+  width:min(560px,94%)!important;
+  max-height:92px!important;
+  margin:18px auto 0!important;
+  padding:4px 8px!important;
+  border-top:1px solid var(--rule-dark,#7a5c36)!important;
+  border-bottom:1px solid var(--rule-dark,#7a5c36)!important;
+  object-fit:contain!important;
+}
+.bayeux-approved-map .hero-art>.native-art.native-hero-support{
+  width:min(560px,94%)!important;
+}
+.bayeux-approved-map .native-art-divider img{
+  width:min(560px,82%)!important;
+  max-height:82px!important;
+  object-fit:contain!important;
+}
+.bayeux-approved-map .native-border-fragment{
+  width:min(560px,94%)!important;
+  max-height:60px!important;
+}
+.bayeux-approved-map .native-corner-ornament{
+  position:absolute!important;
+  right:18px!important;
+  bottom:18px!important;
+  width:72px!important;
+  max-height:72px!important;
+  opacity:.82!important;
+  pointer-events:none!important;
+}
+.bayeux-approved-map .native-record-accent{
+  float:right!important;
+  width:54px!important;
+  max-height:54px!important;
+  margin:0 0 8px 10px!important;
+  opacity:.86!important;
+}
+.bayeux-approved-map .cap-illumination.native-art,
+.bayeux-approved-map .work-illumination.native-art,
+.bayeux-approved-map .note-thumb.native-art{
+  object-fit:contain!important;
+}
+@media(max-width:760px){
+  .bayeux-approved-map .native-hero-support{width:90%!important;max-height:64px!important;margin-top:12px!important}
+  .bayeux-approved-map .native-corner-ornament{display:none!important}
+}
+@media(max-width:480px){
+  .bayeux-approved-map .native-hero-support{max-height:46px!important}
+}
+@media(max-width:700px) and (orientation:portrait){
+  .bayeux-approved-map .hero-art>.native-art.native-hero-support{width:92%!important;max-height:44px!important;margin-top:8px!important;padding:2px 6px!important}
+}
