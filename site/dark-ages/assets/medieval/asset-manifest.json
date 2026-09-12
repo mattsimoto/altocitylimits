@@ -1,5 +1,31 @@
 {
-  "pipeline": "direct-webp",
-  "verified": ["dragon.webp", "snail.webp", "diagram-compass.webp"],
-  "planned": ["manicule-blue.webp", "manicule-red.webp", "manicule-floral.webp", "vine-01.webp", "vine-02.webp", "initial-a.webp", "initial-c.webp", "initial-m.webp", "diagram-cosmos.webp", "diagram-elements.webp", "diagram-grid.webp", "grotesque-blue-devil.webp", "grotesque-lion.webp", "grotesque-bird.webp", "grotesque-rabbit.webp", "border-dragon-horizontal.webp", "border-bird-horizontal.webp"]
+  "pipeline": "direct-assets",
+  "notes": "Dark Ages uses normal browser-loaded image files. WebP files preserve the approved generated manuscript art. SVG files add Bayeux-inspired embroidered components for missing layout roles.",
+  "verified_webp": [
+    "dragon.webp",
+    "snail.webp",
+    "diagram-compass.webp",
+    "initial-m.webp",
+    "grotesque-blue-devil.webp",
+    "border-dragon-horizontal.webp"
+  ],
+  "bayeux_inspired_svg": [
+    "manicule-bayeux.svg",
+    "bayeux-horseman.svg",
+    "bayeux-ship.svg",
+    "bayeux-border-beasts.svg",
+    "bayeux-banner.svg",
+    "bayeux-tree.svg",
+    "bayeux-shields.svg",
+    "bayeux-castle.svg",
+    "bayeux-hound.svg",
+    "bayeux-comet.svg"
+  ],
+  "still_needed": [
+    "additional illuminated initials A/L/C",
+    "additional grotesques",
+    "more border/corner fragments",
+    "Bayeux-inspired foot soldiers",
+    "Bayeux-inspired feast/workshop scene"
+  ]
 }
