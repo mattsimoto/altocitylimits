@@ -10,184 +10,18 @@
 <script>
 (async()=>{
   try{
+    const version='dark-contrast-1';
     const names=['chunk-00','chunk-01','chunk-02','chunk-03'];
-    const parts=await Promise.all(names.map(async n=>(await (await fetch(n+'?v=dark-darker-1')).text()).trim()));
+    const parts=await Promise.all(names.map(async n=>(await (await fetch(n+'?v='+version)).text()).trim()));
     const bytes=Uint8Array.from(atob(parts.join('')),c=>c.charCodeAt(0));
     const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
     let html=await new Response(stream).text();
-
-    const css=`<style>
-/* GitHub Pages Dark-mode color pass. The archived Campaign source remains unchanged. */
-:root{
-  --alc-dungeon:#0d0907;
-  --alc-dungeon-2:#120c09;
-  --alc-leather:#1a120e;
-  --alc-leather-2:#241710;
-  --alc-umber:#322118;
-  --alc-line:#4a3023;
-  --alc-line-soft:#38251c;
-  --alc-oxblood:#6f1d1b;
-  --alc-blood:#92251f;
-  --alc-red:#ad3428;
-  --alc-rust:#b95437;
-  --alc-bronze:#9b754d;
-  --alc-parchment:#eadcc7;
-  --alc-text:#d4c3ad;
-  --alc-muted:#a9957d;
-
-  /* Catch common custom-property names used by theme components. */
-  --background:var(--alc-dungeon)!important;
-  --background-alt:var(--alc-dungeon-2)!important;
-  --bg:var(--alc-dungeon)!important;
-  --surface:var(--alc-leather)!important;
-  --surface-alt:var(--alc-leather-2)!important;
-  --panel:var(--alc-leather)!important;
-  --paper:var(--alc-leather)!important;
-  --cream:var(--alc-text)!important;
-  --ink:var(--alc-parchment)!important;
-  --text:var(--alc-text)!important;
-  --muted:var(--alc-muted)!important;
-  --accent:var(--alc-blood)!important;
-  --accent-2:var(--alc-rust)!important;
-  --border:var(--alc-line)!important;
-  color-scheme:dark;
-}
-
-html,body{
-  background:var(--alc-dungeon)!important;
-  color:var(--alc-text)!important;
-}
-body{
-  background-image:
-    radial-gradient(circle at 14% 4%,rgba(111,29,27,.18),transparent 28rem),
-    radial-gradient(circle at 88% 24%,rgba(73,45,29,.16),transparent 34rem),
-    linear-gradient(180deg,#100b08 0%,#0d0907 38%,#090605 100%)!important;
-  background-attachment:fixed!important;
-}
-
-/* Make the formerly light Campaign bands truly dark. */
-body .site,body .page,body .site-main,body main,
-body section,body [class*="section"],body [class*="chapter"],body [class*="band"],body [class*="strip"],body [class*="zone"],
-body [class*="hero"],body [class*="intro"],body [class*="content"],body [class*="wrapper"]{
-  background-color:transparent!important;
-  background-image:none!important;
-}
-body main>section,body main>div,body .site-main>section,body .site-main>div,
-body [class*="chapter"],body [class*="section"],body [class*="band"],body [class*="strip"]{
-  background:linear-gradient(180deg,rgba(18,12,9,.98),rgba(10,7,5,.98))!important;
-  color:var(--alc-text)!important;
-  border-color:var(--alc-line-soft)!important;
-}
-body main>section:nth-of-type(even),body .site-main>section:nth-of-type(even),body [class*="chapter"]:nth-of-type(even){
-  background:linear-gradient(180deg,rgba(28,17,12,.98),rgba(13,9,7,.98))!important;
-}
-body main>section:nth-of-type(odd),body .site-main>section:nth-of-type(odd),body [class*="chapter"]:nth-of-type(odd){
-  background:linear-gradient(180deg,rgba(13,9,7,.99),rgba(18,12,9,.99))!important;
-}
-body [style*="background:#"],body [style*="background: #"],body [style*="background-color:#"],body [style*="background-color: #"]{
-  background:#120c09!important;
-}
-body [class*="light"],body [class*="cream"],body [class*="paper"],body [class*="parchment"],body [class*="beige"],body [class*="tan"]{
-  background-color:#120c09!important;
-  background-image:none!important;
-  color:var(--alc-text)!important;
-}
-
-header,.site-header,[class*="header"],nav,.site-nav,[class*="nav"],footer,.site-footer,[class*="footer"]{
-  background-color:rgba(15,10,8,.96)!important;
-  color:var(--alc-text)!important;
-  border-color:var(--alc-line)!important;
-}
-
-main,section,.site-main,[class*="section"],[class*="chapter"]{
-  color:var(--alc-text)!important;
-  border-color:var(--alc-line-soft)!important;
-}
-main>section:nth-of-type(even){background-color:rgba(39,23,16,.24)!important}
-
-h1,h2,h3,h4,h5,h6,.site-title,[class*="title"],[class*="heading"]{
-  color:var(--alc-parchment)!important;
-  text-shadow:0 1px 0 #000,0 0 24px rgba(111,29,27,.08)!important;
-}
-p,li,dd,dt,figcaption,caption,small,.excerpt,.summary,[class*="copy"],[class*="description"]{
-  color:var(--alc-text)!important;
-}
-[class*="eyebrow"],[class*="kicker"],[class*="chapter-label"],[class*="label"],[class*="meta"],time{
-  color:var(--alc-rust)!important;
-}
-
-hr,*{border-color:var(--alc-line)!important}
-
-/* Cards, stat blocks, records and framed content. */
-article,.card,[class*="-card"],[class*="card"],[class*="panel"],[class*="stat-block"],[class*="factbox"],[class*="metric"],[class*="record"],[class*="skill-check"]{
-  background-color:var(--alc-leather)!important;
-  background-image:none!important;
-  color:var(--alc-text)!important;
-  border-color:var(--alc-line)!important;
-  box-shadow:0 12px 34px rgba(0,0,0,.24)!important;
-}
-article:nth-child(even),[class*="card"]:nth-child(even){background-color:var(--alc-leather-2)!important}
-
-/* Random encounter / loot / roll boxes keep their surprise but read as dungeon artifacts. */
-blockquote,pre,code,table,[class*="outcome"],[class*="generator"],[class*="encounter"],[class*="loot"],[class*="random"],[class*="roll"],[class*="chest"]{
-  background-color:#17100c!important;
-  background-image:none!important;
-  color:var(--alc-parchment)!important;
-  border-color:#5a3526!important;
-}
-
-/* Links use tarnished bronze, with blood-red interaction. */
-a{color:#c99b68!important}
-a:hover,a:focus{color:#e06448!important;text-decoration-color:var(--alc-red)!important}
-
-button,.button,.btn,input[type="submit"],input[type="button"],[class*="button"]{
-  background:linear-gradient(180deg,#8b2822,#641916)!important;
-  color:#f2e2cd!important;
-  border-color:#b04a36!important;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 6px 18px rgba(0,0,0,.28)!important;
-}
-button:hover,button:focus,.button:hover,.button:focus,.btn:hover,.btn:focus,input[type="submit"]:hover,input[type="submit"]:focus{
-  background:linear-gradient(180deg,#a7352b,#771f1a)!important;
-  color:#fff4e6!important;
-  border-color:#d05b43!important;
-}
-
-input,textarea,select{
-  background:#120c09!important;
-  color:var(--alc-parchment)!important;
-  border-color:var(--alc-line)!important;
-}
-input::placeholder,textarea::placeholder{color:#806f5d!important}
-
-/* Keep artwork visible without bright white blocks dominating the dark composition. */
-img{filter:brightness(.78) saturate(.82) contrast(1.06)}
-figure,[class*="image"],[class*="media"]{border-color:var(--alc-line)!important;background-color:#120c09!important}
-
-::selection{background:var(--alc-blood);color:#fff3e3}
-
-/* Small utility-level mode switcher. */
-#alc-pages-switcher{
-  position:fixed;z-index:2147483647;top:8px;right:10px;display:flex;gap:5px;padding:1px 3px;
-  background:rgba(9,6,5,.5);backdrop-filter:blur(4px);border-radius:2px;border:1px solid rgba(155,117,77,.16)!important
-}
-#alc-pages-switcher a{
-  width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;text-decoration:none!important;
-  font:600 11px/1 Arial,sans-serif!important;color:rgba(234,220,199,.58)!important;border:0!important;border-bottom:2px solid transparent!important
-}
-#alc-pages-switcher a:hover,#alc-pages-switcher a:focus{color:#f3e6d5!important;outline:none}
-#alc-pages-switcher a.active{color:#f1d5c0!important;border-bottom-color:var(--alc-red)!important}
-
-@media (max-width:700px){
-  body{background-image:linear-gradient(180deg,#100b08,#090605)!important}
-}
-</style>`;
-
-    const nav=`<nav id="alc-pages-switcher" aria-label="Display mode"><a href="../light/" title="Light">☀</a><a class="active" href="./" title="Dark" aria-current="true">☾</a><a href="../dark-ages/" title="Dark Ages">✥</a><a href="../terminal/" title="Terminal">&gt;_</a></nav>`;
-
+    const css='<link rel="stylesheet" href="campaign-dark.css?v='+version+'">';
+    const nav='<nav id="alc-pages-switcher" aria-label="Display mode"><a href="../light/" title="Light">☀</a><a class="active" href="./" title="Dark" aria-current="true">☾</a><a href="../dark-ages/" title="Dark Ages">✥</a><a href="../terminal/" title="Terminal">&gt;_</a></nav>';
     html=html.replace('</head>',css+'</head>').replace(/<body([^>]*)>/i,'<body$1>'+nav);
     document.open();document.write(html);document.close();
   }catch(e){
-    document.body.innerHTML='<pre style="padding:2rem;white-space:pre-wrap">Could not load Dark preview: '+String(e)+'</pre>'
+    document.body.innerHTML='<pre style="padding:2rem;white-space:pre-wrap">Could not load Dark preview: '+String(e)+'</pre>';
   }
 })();
 </script>
