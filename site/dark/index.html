@@ -10,15 +10,14 @@
 <script>
 (async()=>{
   try{
-    const version='dark-light-card-text-1';
+    const version='dark-single-switcher-1';
     const names=['chunk-00','chunk-01','chunk-02','chunk-03'];
     const parts=await Promise.all(names.map(async n=>(await (await fetch(n+'?v='+version)).text()).trim()));
     const bytes=Uint8Array.from(atob(parts.join('')),c=>c.charCodeAt(0));
     const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
     let html=await new Response(stream).text();
     const css='<link rel="stylesheet" href="campaign-dark.css?v='+version+'">';
-    const nav='<nav id="alc-pages-switcher" aria-label="Display mode"><a href="../light/" title="Light">☀</a><a class="active" href="./" title="Dark" aria-current="true">☾</a><a href="../dark-ages/" title="Dark Ages">✥</a><a href="../terminal/" title="Terminal">&gt;_</a></nav>';
-    html=html.replace('</head>',css+'</head>').replace(/<body([^>]*)>/i,'<body$1>'+nav);
+    html=html.replace('</head>',css+'</head>');
     document.open();document.write(html);document.close();
   }catch(e){
     document.body.innerHTML='<pre style="padding:2rem;white-space:pre-wrap">Could not load Dark preview: '+String(e)+'</pre>';
