@@ -19,6 +19,9 @@
   --alc-parchment:#eadcc7;
   --alc-text:#d4c3ad;
   --alc-muted:#b9a58d;
+  --alc-light-ink:#2f2319;
+  --alc-light-copy:#5a4636;
+  --alc-light-muted:#725d49;
   --background:var(--alc-dungeon)!important;
   --background-alt:var(--alc-dungeon-2)!important;
   --bg:var(--alc-dungeon)!important;
@@ -38,7 +41,7 @@
 html,body{background:var(--alc-dungeon)!important;color:var(--alc-text)!important;max-width:100%;overflow-x:hidden}
 body{background-image:radial-gradient(circle at 14% 4%,rgba(111,29,27,.18),transparent 28rem),radial-gradient(circle at 88% 24%,rgba(73,45,29,.16),transparent 34rem),linear-gradient(180deg,#100b08 0%,#0d0907 38%,#090605 100%)!important;background-attachment:fixed!important}
 
-/* Page bands stay dark, but component-specific contrast is only repaired in Chapters I, III, IV, and VII below. */
+/* Page bands stay dark. Card-specific readability is repaired only in Chapters I, III, IV, and VII below. */
 body .site,body .page,body .site-main,body main,body section,body [class*="section"],body [class*="chapter"],body [class*="band"],body [class*="strip"],body [class*="zone"],body [class*="hero"],body [class*="intro"],body [class*="content"],body [class*="wrapper"]{background-color:transparent!important;background-image:none!important}
 body main>section,body main>div,body .site-main>section,body .site-main>div,body [class*="chapter"],body [class*="section"],body [class*="band"],body [class*="strip"]{background:linear-gradient(180deg,rgba(18,12,9,.98),rgba(10,7,5,.98))!important;color:var(--alc-text)!important;border-color:var(--alc-line-soft)!important}
 body main>section:nth-of-type(even),body .site-main>section:nth-of-type(even),body [class*="chapter"]:nth-of-type(even){background:linear-gradient(180deg,rgba(28,17,12,.98),rgba(13,9,7,.98))!important}
@@ -50,7 +53,7 @@ p,li,dd,dt,figcaption,caption,small,.excerpt,.summary,[class*="copy"],[class*="d
 [class*="eyebrow"],[class*="kicker"],[class*="chapter-label"],[class*="label"],[class*="meta"],time{color:var(--alc-rust)!important}
 hr,*{border-color:var(--alc-line)!important}
 
-/* General dark mode surfaces. These avoid changing the character of non-problem chapters. */
+/* General dark mode surfaces. */
 article,.card,[class*="-card"],[class*="card"],[class*="panel"],[class*="stat-block"],[class*="factbox"],[class*="skill-check"]{background-color:var(--alc-card)!important;background-image:none!important;color:var(--alc-text)!important;border-color:var(--alc-line)!important;box-shadow:0 12px 34px rgba(0,0,0,.28)!important}
 article:nth-child(even),[class*="card"]:nth-child(even){background-color:var(--alc-card-2)!important}
 blockquote,pre,code,table,[class*="outcome"],[class*="generator"],[class*="encounter"],[class*="loot"],[class*="random"],[class*="roll"],[class*="chest"]{background-color:#17100c!important;background-image:none!important;color:var(--alc-parchment)!important;border-color:#5a3526!important}
@@ -62,7 +65,8 @@ input,textarea,select{background:#120c09!important;color:var(--alc-parchment)!im
 img{filter:brightness(.78) saturate(.82) contrast(1.06)}figure,[class*="image"],[class*="media"]{border-color:var(--alc-line)!important;background-color:#120c09!important}
 ::selection{background:var(--alc-blood);color:#fff3e3}
 
-/* Targeted repairs only: Chapter I capability/quest cards, Chapter III guide/profile card, Chapter IV metrics, Chapter VII side quest cards. */
+/* Targeted light-card text repairs only.
+   Chapters I, III, IV, and VII keep their white/parchment cards; only the washed-out tan text is darkened. */
 body :is(
   [class*="quest-card"],
   [class*="capability"],
@@ -76,10 +80,6 @@ body :is(
   [class*="record-card"],
   [class*="side-quest"]
 ){
-  background:#18100c!important;
-  background-image:linear-gradient(180deg,#22150f,#120c09)!important;
-  color:#dfcfba!important;
-  border-color:#5a3828!important;
   text-shadow:none!important;
 }
 body :is(
@@ -94,8 +94,8 @@ body :is(
   [class*="metric"],
   [class*="record-card"],
   [class*="side-quest"]
-) :is(p,li,dd,dt,figcaption,caption,small,.excerpt,.summary,[class*="copy"],[class*="description"],[class*="body"],[class*="text"],span){
-  color:#d9c7ae!important;
+) :is(p,li,dd,dt,figcaption,caption,small,.excerpt,.summary,[class*="subtitle"],[class*="subheading"],[class*="dek"],[class*="copy"],[class*="description"],[class*="body"],[class*="text"],span){
+  color:var(--alc-light-copy)!important;
   opacity:1!important;
   text-shadow:none!important;
 }
@@ -112,8 +112,8 @@ body :is(
   [class*="record-card"],
   [class*="side-quest"]
 ) :is(h1,h2,h3,h4,h5,h6,[class*="title"],[class*="heading"]){
-  color:#f1dfc8!important;
-  text-shadow:0 1px 0 #000!important;
+  color:var(--alc-light-ink)!important;
+  text-shadow:none!important;
   opacity:1!important;
 }
 body :is(
@@ -129,7 +129,7 @@ body :is(
   [class*="record-card"],
   [class*="side-quest"]
 ) :is([class*="eyebrow"],[class*="kicker"],[class*="label"],[class*="meta"],time){
-  color:#d07355!important;
+  color:#9a3b2a!important;
   opacity:1!important;
   text-shadow:none!important;
 }
